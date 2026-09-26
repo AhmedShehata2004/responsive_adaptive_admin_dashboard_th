@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_adaptive_admin_dashboard_th/models/drawer_item_model.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/models/user_info_model.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/utils/app_images.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/widgets/drawer_bottom_section.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/widgets/drawer_items_listview.dart';
-import 'package:responsive_adaptive_admin_dashboard_th/widgets/inactive_drawer_item.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/widgets/user_info_list_tile.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -14,20 +12,28 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: const Color(0xFFFFFFFF),
-      child: Column(
-        children: [
-          const SizedBox(height: 20),
-          UserInfoListTile(
-            userInfoModel: UserInfoModel(
-              imagePath: AppImages.imagesAvatar2,
-              title: 'Lekan Okeowo',
-              subtitle: 'demo@gmail.com',
+      child: CustomScrollView(
+        slivers: [
+          const SliverToBoxAdapter(child: SizedBox(height: 20)),
+          SliverToBoxAdapter(
+            child: UserInfoListTile(
+              userInfoModel: UserInfoModel(
+                imagePath: AppImages.imagesAvatar2,
+                title: 'Lekan Okeowo',
+                subtitle: 'demo@gmail.com',
+              ),
             ),
           ),
+          const SliverToBoxAdapter(child: SizedBox(height: 8)),
           DrawerItemsListview(),
-          Expanded(child: SizedBox()),
-          DrawerBottomSection(),
-          SizedBox(height: 48),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Column(
+              children: [Expanded(child: SizedBox()), DrawerBottomSection()],
+            ),
+          ),
+
+          const SliverToBoxAdapter(child: SizedBox(height: 48)),
         ],
       ),
     );
