@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_adaptive_admin_dashboard_th/views/dashboard_view.dart';
 
 void main() {
   runApp(const ResponsiveDashBoard());
@@ -11,16 +12,8 @@ class ResponsiveDashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-     
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Responsive Dashboard'),
-        ),
-        body: const Center(
-          child: Text('Welcome to the Responsive Dashboard!'),
-        ),
-      )
+      debugShowCheckedModeBanner: false,
+      home: const DashboardView(),
     );
   }
 }
-
