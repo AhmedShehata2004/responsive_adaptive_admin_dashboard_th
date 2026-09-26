@@ -9,21 +9,21 @@ class DrawerBottomSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-            children: [
-              InactiveDrawerItem(
-                drawerItemModel: DrawerItemModel(
-                  imagePath: AppImages.imagesSettings,
-                  text: 'Settings',
-                ),
-              ),
+      children: [
+        InactiveDrawerItem(
+          drawerItemModel: DrawerItemModel(
+            imagePath: AppImages.imagesSettings,
+            text: 'Settings',
+          ),
+        ),
 
-              InactiveDrawerItem(
-                drawerItemModel: DrawerItemModel(
-                  imagePath: AppImages.imagesLogout,
-                  text: 'Logout account',
-                ),
-              ),
-            ],
-          );
+        InactiveDrawerItem(
+          drawerItemModel: DrawerItemModel(
+            imagePath: AppImages.imagesLogout,
+            text: 'Logout account',
+          ),
+        ),
+      ],
+    );
   }
 }
