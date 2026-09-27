@@ -6,6 +6,7 @@ import 'package:responsive_adaptive_admin_dashboard_th/widgets/custom_drawer.dar
 import 'package:responsive_adaptive_admin_dashboard_th/widgets/income_section.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/widgets/quick_invioce_body.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/widgets/quick_invoice_header.dart';
+import 'package:responsive_adaptive_admin_dashboard_th/widgets/transicion_history.dart';
 
 class DashboardDesktopLayout extends StatelessWidget {
   const DashboardDesktopLayout({super.key});
@@ -41,7 +42,13 @@ class DashboardDesktopLayout extends StatelessWidget {
             ),
           ),
           SizedBox(width: 24),
-          Expanded(child: IncomeSection()),
+          Expanded(child: Column(
+            children: [
+              TrasnctionHistory(),
+              // TransctionHistoryListView(),
+              IncomeSection(),
+            ],
+          )),
         ],
       ),
     );
