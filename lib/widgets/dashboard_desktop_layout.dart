@@ -4,6 +4,8 @@ import 'package:responsive_adaptive_admin_dashboard_th/widgets/all_expenses_body
 import 'package:responsive_adaptive_admin_dashboard_th/widgets/all_expenses_header.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/widgets/custom_drawer.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/widgets/income_section.dart';
+import 'package:responsive_adaptive_admin_dashboard_th/widgets/my_card.dart';
+import 'package:responsive_adaptive_admin_dashboard_th/widgets/my_card_section.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/widgets/quick_invioce_body.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/widgets/quick_invoice_header.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/widgets/transicion_history.dart';
@@ -42,8 +44,10 @@ class DashboardDesktopLayout extends StatelessWidget {
             ),
           ),
           SizedBox(width: 24),
-          Expanded(child: Column(
+          Expanded(
+            child: Column(
             children: [
+              MyCardsSection(),
               TrasnctionHistory(),
               // TransctionHistoryListView(),
               IncomeSection(),
