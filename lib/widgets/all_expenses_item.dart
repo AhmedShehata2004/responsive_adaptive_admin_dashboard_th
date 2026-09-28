@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/models/all_expenses_item_model.dart';
-import 'package:responsive_adaptive_admin_dashboard_th/utils/app_images.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/utils/app_styles.dart';
 
 class AllExpensesItem extends StatelessWidget {
@@ -15,68 +14,77 @@ class AllExpensesItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: ShapeDecoration(
         color: isActive ? const Color(0xFF4EB7F2) : const Color(0xFFFFFFFF),
-        borderRadius: BorderRadius.circular(8),
+        shape: RoundedRectangleBorder(
+          side: const BorderSide(width: 1, color: Color(0xFFF1F1F1)),
+          borderRadius: BorderRadius.circular(12),
+        ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(
-                    AppImages.imagesBalance,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SvgPicture.asset(
+                 allExpensesItemModel.imagePath,
+                  color: isActive ? Colors.white : Colors.black,
+                ),
+                Expanded(child: SizedBox()),
+                Transform.rotate(
+                  angle: -3.14 / 2,
+                  child: Icon(
+                    Icons.keyboard_arrow_down,
                     color: isActive ? Colors.white : Colors.black,
                   ),
-                  Spacer(),
-                  Transform.rotate(
-                    angle: -3.14 / 2,
-                    child: Icon(
-                      Icons.keyboard_arrow_down,
-                      color: isActive ? Colors.white : Colors.black,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-            SizedBox(height: 8),
+            SizedBox(height: 24),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  allExpensesItemModel.text,
-                  style:
-                      isActive
-                          ? AppStyles.styleSemiBold16(
-                            context,
-                          ).copyWith(color: Colors.white)
-                          : AppStyles.styleSemiBold16(context),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    allExpensesItemModel.text,
+                    style:
+                        isActive
+                            ? AppStyles.styleSemiBold16(
+                              context,
+                            ).copyWith(color: Colors.white)
+                            : AppStyles.styleSemiBold16(context),
+                  ),
                 ),
                 SizedBox(height: 4),
 
-                Text(
-                  allExpensesItemModel.date,
-                  style:
-                      isActive
-                          ? AppStyles.styleRegular14(
-                            context,
-                          ).copyWith(color: Colors.white)
-                          : AppStyles.styleRegular14(context),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    allExpensesItemModel.date,
+                    style:
+                        isActive
+                            ? AppStyles.styleRegular14(
+                              context,
+                            ).copyWith(color: Colors.white)
+                            : AppStyles.styleRegular14(context),
+                  ),
                 ),
                 SizedBox(height: 16),
-                Text(
-                  "${allExpensesItemModel.price}\$",
-                  style:
-                      isActive
-                          ? AppStyles.styleSemiBold24(
-                            context,
-                          ).copyWith(color: Colors.white)
-                          : AppStyles.styleSemiBold24(context),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    "\$ ${allExpensesItemModel.price}",
+                    style:
+                        isActive
+                            ? AppStyles.styleSemiBold24(
+                              context,
+                            ).copyWith(color: Colors.white)
+                            : AppStyles.styleSemiBold24(context),
+                  ),
                 ),
               ],
             ),

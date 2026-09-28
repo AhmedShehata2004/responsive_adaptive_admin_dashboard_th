@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/models/all_expenses_item_model.dart';
+import 'package:responsive_adaptive_admin_dashboard_th/utils/app_images.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/widgets/all_expenses_item.dart';
 
 class AllExpensesBody extends StatefulWidget {
-  AllExpensesBody({super.key});
+  const AllExpensesBody({super.key});
 
   @override
   State<AllExpensesBody> createState() => _AllExpensesBodyState();
@@ -13,36 +14,58 @@ int selectedIndex = -1;
 
 class _AllExpensesBodyState extends State<AllExpensesBody> {
   final items = [
-    AllExpensesItemModel(text: 'Balance', date: 'April 2022', price: 20129.0),
-    AllExpensesItemModel(text: 'Income', date: 'April 2022', price: 20129.0),
-    AllExpensesItemModel(text: 'Expenses', date: 'April 2022', price: 20129),
+    AllExpensesItemModel(
+      text: 'Balance',
+      date: 'April 2022',
+      price: 20129.0,
+      imagePath: AppImages.imagesBalance,
+    ),
+    AllExpensesItemModel(
+      text: 'Income',
+      date: 'April 2022',
+      price: 20129.0,
+      imagePath: AppImages.imagesIncome,
+    ),
+    AllExpensesItemModel(
+      text: 'Expenses',
+      date: 'April 2022',
+      price: 20129,
+      imagePath: AppImages.imagesExpenses,
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      // children: items.map((e) => AllExpensessItem(itemModel: e)).toList(),
-      children:
-          items.asMap().entries.map((e) {
-            int index = e.key;
-            var item = e.value;
-            return Expanded(
-              child: GestureDetector(
-                onTap: () {
-                  updateIndex(index);
-                },
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: index == 1 ? 12 : 0,
-                  ),
-                  child: AllExpensesItem(
-                    isActive: selectedIndex == index,
-                    allExpensesItemModel: item,
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Row(
+        // children: items.map((e) => AllExpensessItem(itemModel: e)).toList(),
+        /*
+            items.asMap().entries.map((e) 
+            . map return only one widget 
+            .expand return more than one
+
+          */
+        children:
+            items.asMap().entries.expand((e) {
+              int index = e.key;
+              var item = e.value;
+              return [
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      updateIndex(index);
+                    },
+                    child: AllExpensesItem(
+                      isActive: selectedIndex == index,
+                      allExpensesItemModel: item,
+                    ),
                   ),
                 ),
-              ),
-            );
-          }).toList(),
+                if (index != items.length - 1) const SizedBox(width: 16),
+              ];
+            }).toList(),
+      ),
     );
   }
 

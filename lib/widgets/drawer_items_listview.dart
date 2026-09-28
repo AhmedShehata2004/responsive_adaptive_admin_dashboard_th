@@ -4,7 +4,7 @@ import 'package:responsive_adaptive_admin_dashboard_th/utils/app_images.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/widgets/drawer_item.dart';
 
 class DrawerItemsListview extends StatefulWidget {
-  DrawerItemsListview({super.key});
+  const DrawerItemsListview({super.key});
 
   @override
   State<DrawerItemsListview> createState() => _DrawerItemsListviewState();

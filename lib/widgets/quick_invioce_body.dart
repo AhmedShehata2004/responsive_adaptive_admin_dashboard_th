@@ -17,7 +17,9 @@ class QuickInvoiceBody extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 LatestTransctionListView(),
-                const SizedBox(height: 24),
+                 Divider(
+                        height: 32,
+                      ),
                 QuickInvoiceForm(),
       ],
     );

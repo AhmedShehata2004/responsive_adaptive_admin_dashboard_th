@@ -3,7 +3,6 @@ import 'package:responsive_adaptive_admin_dashboard_th/utils/app_styles.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/widgets/dots_indicator.dart';
 import 'package:responsive_adaptive_admin_dashboard_th/widgets/my_card_page_view.dart';
 
-
 class MyCardsSection extends StatefulWidget {
   const MyCardsSection({super.key});
 
@@ -31,29 +30,21 @@ class _MyCardsSectionState extends State<MyCardsSection> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(
-          width: 420,
-          child: Text(
-            'My card',
-            style: AppStyles.styleSemiBold20(context),
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: 420,
+            child: Text('My card', style: AppStyles.styleSemiBold20(context)),
           ),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        MyCardsPageView(
-          pageController: pageController,
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        DotsIndicator(
-          currentPageIndex: currentPageIndex,
-        ),
-      ],
+          const SizedBox(height: 20),
+          MyCardsPageView(pageController: pageController),
+          const SizedBox(height: 20),
+          DotsIndicator(currentPageIndex: currentPageIndex),
+        ],
+      ),
     );
   }
 }
