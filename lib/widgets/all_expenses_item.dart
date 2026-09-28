@@ -29,9 +29,18 @@ class AllExpensesItem extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SvgPicture.asset(
-                 allExpensesItemModel.imagePath,
-                  color: isActive ? Colors.white : Colors.black,
+                Flexible(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxHeight: 50,),
+                    child: AspectRatio(
+                      aspectRatio: 1,
+                      child: SvgPicture.asset(
+                       allExpensesItemModel.imagePath,
+                        color: isActive ? Colors.white : Colors.black,
+                                     
+                      ),
+                    ),
+                  ),
                 ),
                 Expanded(child: SizedBox()),
                 Transform.rotate(
@@ -48,6 +57,7 @@ class AllExpensesItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 FittedBox(
+                  alignment: AlignmentDirectional.centerStart,
                   fit: BoxFit.scaleDown,
                   child: Text(
                     allExpensesItemModel.text,
@@ -62,6 +72,7 @@ class AllExpensesItem extends StatelessWidget {
                 SizedBox(height: 4),
 
                 FittedBox(
+                  alignment: AlignmentDirectional.centerStart,
                   fit: BoxFit.scaleDown,
                   child: Text(
                     allExpensesItemModel.date,
@@ -75,6 +86,7 @@ class AllExpensesItem extends StatelessWidget {
                 ),
                 SizedBox(height: 16),
                 FittedBox(
+                  alignment: AlignmentDirectional.centerStart,
                   fit: BoxFit.scaleDown,
                   child: Text(
                     "\$ ${allExpensesItemModel.price}",

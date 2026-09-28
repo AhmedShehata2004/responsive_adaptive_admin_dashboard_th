@@ -39,6 +39,7 @@ class _AllExpensesBodyState extends State<AllExpensesBody> {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Row(
+        
         // children: items.map((e) => AllExpensessItem(itemModel: e)).toList(),
         /*
             items.asMap().entries.map((e) 

@@ -50,13 +50,21 @@ class ItemDetails extends StatelessWidget {
           shape: const OvalBorder(),
         ),
       ),
-      title: Text(
-        itemDetailsModel.title,
-        style: AppStyles.styleRegular16(context),
+      title: FittedBox(
+        fit: BoxFit.scaleDown,
+        alignment: AlignmentDirectional.centerStart,
+        child: Text(
+          itemDetailsModel.title,
+          style: AppStyles.styleRegular16(context),
+        ),
       ),
-      trailing: Text(
-        itemDetailsModel.value,
-        style: AppStyles.styleMedium16(context),
+      trailing: FittedBox(
+        fit: BoxFit.scaleDown,
+        alignment: AlignmentDirectional.centerStart,
+        child: Text(
+          itemDetailsModel.value,
+          style: AppStyles.styleMedium16(context),
+        ),
       ),
     );
   }
