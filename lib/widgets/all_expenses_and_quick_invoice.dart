@@ -16,7 +16,11 @@ class AllExpensesAndQuickInvoice extends StatelessWidget {
                 CustomContainer(
                   widget: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [AllExpensesHeader(), AllExpensesBody()],
+                    children: [
+                      AllExpensesHeader(),
+                    
+                     AllExpensesBody(),
+                     ],
                   ),
                 ),
                 SizedBox(height: 24),

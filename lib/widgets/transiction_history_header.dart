@@ -11,14 +11,22 @@ class TansctionHistoryHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          'Transaction History',
-          style: AppStyles.styleSemiBold20(context),
+        FittedBox(
+          alignment: AlignmentDirectional.centerStart,
+          fit: BoxFit.scaleDown,
+          child: Text(
+            'Transaction History',
+            style: AppStyles.styleSemiBold20(context),
+          ),
         ),
-        Text(
-          'See all',
-          style: AppStyles.styleMedium16(context).copyWith(
-            color: const Color(0xFF4EB7F2),
+        FittedBox(
+          alignment: AlignmentDirectional.centerStart,
+          fit: BoxFit.scaleDown,
+          child: Text(
+            'See all',
+            style: AppStyles.styleMedium16(context).copyWith(
+              color: const Color(0xFF4EB7F2),
+            ),
           ),
         )
       ],

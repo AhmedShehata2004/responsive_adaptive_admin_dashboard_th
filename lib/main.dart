@@ -9,6 +9,9 @@ class ResponsiveDashBoard extends StatelessWidget {
   const ResponsiveDashBoard({super.key});
   @override
   Widget build(BuildContext context) {
+     final width = MediaQuery.sizeOf(context).width;
+
+  print('Screen Width: $width');
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const DashboardView(),
